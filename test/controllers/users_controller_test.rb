@@ -4,6 +4,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:michael)
+    @other_suer = users(:archer)
   end
 
   test "should get new" do
