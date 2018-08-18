@@ -36,4 +36,11 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
      assert_select "a[href=?]", logout_path
      assert_select "a[href=?]", login_path, count:0
    end
+
+   test "count relationship" do
+     log_in_as(@user)
+     get root_path
+     assert_select "strong#following", text: @user.following.count.to_s
+     assert_select "strong#followers", text: @user.followers.count.to_s
+   end
 end
